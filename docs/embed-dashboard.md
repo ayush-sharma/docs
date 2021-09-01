@@ -31,3 +31,15 @@ You can set the background color as `transparent` in the embed code. It's much m
 ## 3. Paste the embed code into your website
 
 Copy the embed code that's been generated and paste it wherever you want your Plausible stats dashboard to be embedded.
+
+## 4. Update your `X-Frame-Options` headers
+
+If you're using the `X-Frame-Options` directive, make sure it allows iframes from `https://plausible.io`.
+
+For example, if you're using Netlify, your headers section should contain:
+
+```
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options: ALLOW-FROM "https://plausible.io"
